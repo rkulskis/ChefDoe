@@ -1,2 +1,2 @@
 # ChefDoe
-CS411 project
+The Frontend branch, based in React
