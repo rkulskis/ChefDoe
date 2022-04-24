@@ -1,0 +1,27 @@
+{
+  "name": "chefdoe",
+  "version": "1.0.0",
+  "description": "CS411 project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkulskis/ChefDoe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rkulskis/ChefDoe/issues"
+  },
+  "homepage": "https://github.com/rkulskis/ChefDoe#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "puppeteer-core": "^13.6.0"
+  },
+  "devDependencies": {
+    "puppeteer": "^13.6.0"
+  }
+}
