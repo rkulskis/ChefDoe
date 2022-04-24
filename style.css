@@ -1,1 +1,72 @@
-/* styling for entire? project */
+/* ---------------------- setting defaults ----------------------  */
+html, body{
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.flex-container{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
+
+/*  ---------------------- fonts ----------------------  */
+@font-face{
+	font-family: "uBold";
+	src: url("./fonts/Ubuntu-Bold.ttf");
+}
+@font-face{
+	font-family: "uItalic";
+	src: url("./fonts/Ubuntu-Italic.ttf");
+}
+@font-face{
+	font-family: "uBoldItalic";
+	src: url("./fonts/Ubuntu-BoldItalic.ttf");
+}
+@font-face{
+	font-family: "uLight";
+	src: url("./fonts/Ubuntu-Light.ttf");
+}
+@font-face{
+	font-family: "uLightItalic";
+	src: url("./fonts/Ubuntu-LightItalic.ttf");
+}
+@font-face{
+	font-family: "uMedium";
+	src: url("./fonts/Ubuntu-Medium.ttf");
+}
+@font-face{
+	font-family: "uMediumItalic";
+	src: url("./fonts/Ubuntu-MediumItalic.ttf");
+}
+@font-face{
+	font-family: "uRegular";
+	src: url("./fonts/Ubuntu-Regular.ttf");
+}
+
+/* ---------------------- main menu styles ---------------------- */
+#mainBar{
+	z-index: 10;
+	width: 100%;
+	height: 60px;
+	background-color: #000;
+	cursor: default;
+}
+
+.mainButton{
+	z-index: 9;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	background-color: #3452eb;
+	cursor: pointer;
+	font-family: uBoldItalic;
+	text-align: center;
+}
+
+.mainButton:hover{
+	color: #e81607;
+}
