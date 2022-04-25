@@ -1,0 +1,150 @@
+/*body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}*/
+
+/* ---------------------- useful global settings  ----------------------  */
+html, body{
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.flexer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+}
+
+
+/*  ---------------------- fonts ----------------------  */
+/*@font-face{
+  font-family: "uBold";
+  src: url("./fonts/Ubuntu-Bold.ttf");
+}
+@font-face{
+  font-family: "uItalic";
+  src: url("./fonts/Ubuntu-Italic.ttf");
+}
+@font-face{
+  font-family: "uBoldItalic";
+  src: url("./fonts/Ubuntu-BoldItalic.ttf");
+}
+@font-face{
+  font-family: "uLight";
+  src: url("./fonts/Ubuntu-Light.ttf");
+}
+@font-face{
+  font-family: "uLightItalic";
+  src: url("./fonts/Ubuntu-LightItalic.ttf");
+}
+@font-face{
+  font-family: "uMedium";
+  src: url("./fonts/Ubuntu-Medium.ttf");
+}
+@font-face{
+  font-family: "uMediumItalic";
+  src: url("./fonts/Ubuntu-MediumItalic.ttf");
+}
+@font-face{
+  font-family: "uRegular";
+  src: url("./fonts/Ubuntu-Regular.ttf");
+}*/
+
+/* ---------------------- main menu styles ---------------------- */
+#mainTab{
+  z-index: 1;
+  width: 300px;
+  height: 100%;
+  background-color: #000;
+}
+
+.mainButton{
+  z-index: 1;
+  width: 175px;
+  height: 75px;
+  justify-content: center;
+  background-color: blue;
+  cursor: pointer;
+  font-family: uBold;
+  font-size: x-large;
+  transition: font-size 0.1s linear;
+  position: relative;
+}
+
+.mainButton:hover{
+  font-size: xx-large;
+  transition: font-size 0.1s linear;
+  color: #fff;
+}
+
+#cookCover{
+  z-index: 1;
+  left: 300px;
+  width: 450px;
+  height: 50%;
+  top: 50%;
+  background-color: #525050;
+}
+/* ---------------------- sub menu styles ---------------------- */
+.subTab{
+  z-index: 0;
+  left: 300px;
+  width: 450px;
+  height: 50%;
+}
+
+#cookTab{
+  background-color: #525050;
+}
+
+#manageTab{
+  top: 50%;
+  background-color: #858282;
+}
+
+#accTab{
+  left: 750px;
+  height: 100%;
+  background-color: #9c9898;
+}
+
+.subButton{
+  width: 400px;
+  height: 75px;
+  justify-content: center;
+  cursor: pointer;
+  font-family: uBold;
+  font-size: xx-large;
+  transition: font-size 0.15s linear;
+  position: relative;
+}
+
+.subButton:hover{
+  font-size: xxx-large;
+  transition: font-size 0.15s linear;
+}
+
+.cook{
+  background-color: red;
+}
+
+.manage{
+  background-color: green;
+}
+
+.acc{
+  background-color: orange;
+}
+
