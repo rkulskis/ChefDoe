@@ -1,15 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import styling from './index.css';
+import './index.css';
 
-
+const colors = ['red', 'blue', 'green', 'yellow', 'black'];
 
 class Mover extends React.Component{
-	logClick(){
-		
+	constructor(props){
+		super(props);
+		this.state = {
+			color: 'red'
+		};
 	}
+
+	getRandomColor(){
+		const diffColors = colors.filter(color => color !== this.state.color);
+		const randomColorIndex = Math.floor(Math.random() * diffColors.length);
+		return diffColors[randomColorIndex];
+	}
+
+	handleClick(){
+		this.setState(({color}) => ({color: this.getRandomColor()}));
+	}
+
 	render(){
-		return <div class = "mainButton flexer" onClick = {() => console.log('click')}>Cook</div>
+		return (
+		<div class = "mainButton flexer" style = {{backgroundColor: this.state.color}} 
+		onClick = {() => this.handleClick()}>Cook</div>
+		);
 	}
 }
 
