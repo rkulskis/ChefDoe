@@ -1,17 +1,3 @@
-/*body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}*/
-
 /* ---------------------- useful global settings  ----------------------  */
 html, body{
   height: 100%;
@@ -29,7 +15,7 @@ html, body{
 
 
 /*  ---------------------- fonts ----------------------  */
-/*@font-face{
+@font-face{
   font-family: "uBold";
   src: url("./fonts/Ubuntu-Bold.ttf");
 }
@@ -60,7 +46,7 @@ html, body{
 @font-face{
   font-family: "uRegular";
   src: url("./fonts/Ubuntu-Regular.ttf");
-}*/
+}
 
 /* ---------------------- main menu styles ---------------------- */
 #mainTab{
