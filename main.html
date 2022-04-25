@@ -1,5 +1,3 @@
-<!-- html for entire? project -->
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -22,10 +20,31 @@
 	
 
 	<body>
-		<!-- Main Menu, click buttons to switch between screens -->
-		<div id = "mainBar", class = "flex-container">
-			<div id = "library", class="mainButton">Library</div>
-			<div id = "account", class="mainButton">Account</div>
+		<!-- Main Menu, click buttons to pull up associated sub menu-->
+		<div id = "mainTab", class = "flexer">
+			<div class="mainButton flexer">Cook</div>
+			<div class="mainButton flexer">Recipes</div>
+			<div class="mainButton flexer">Account</div>
+		</div>
+
+		<!-- Sub Menus -->
+		<!-- 
+		cookTab and manageTab would have transitions from the left to their current positions 
+		accTab would cover the other two after its transition from below 
+		 -->
+		<div id = "cookTab", class = "subTab flexer">
+			<div class="subButton cook flexer">Browse Recipes</div>
+			<div class="subButton cook flexer">Random Recipe</div>
+		</div>
+
+		<div id = "manageTab", class = "subTab flexer">
+			<div class="subButton manage flexer">Manage Recipes</div>
+			<div class="subButton manage flexer">Add New Recipe</div>
+		</div>
+
+		<div id = "accTab", class = "subTab flexer">
+			<div class="subButton acc flexer">Update Address</div>
+			<div class="subButton acc flexer">Update Payment</div>
 		</div>
 
 
