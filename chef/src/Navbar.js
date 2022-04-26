@@ -3,10 +3,33 @@ import React, {createContext, useContext, useState} from 'react';
 const FuncContext = createContext();
 const ValContext = createContext();
 
+function Navbar(props){
+  // encapsulates all menu items. can have any amount of children, each of which are 'mainButtons'
+  const [toggle, setToggle] = useState([false, "99"]);
+
+  return(
+    // allows for sub menu toggling logic 
+    <FuncContext.Provider value = {setToggle}>
+    <ValContext.Provider value = {toggle}>
+      {/*boxClass provides styling for the bar, listClass provides styling for the items inside it*/}
+      <div className = {props.boxClass} >
+        <div className = {props.listClass} >
+          {props.children}
+        </div>
+      </div>
+    </ValContext.Provider>
+    </FuncContext.Provider>
+  );
+}
+
  function NavItem(props){
+    // outermost menu item. can have any amount of children, usually sub menus. these are 'mainButtons'
+    // note that props.id is only initialized if this NavItem has children 
     const toggle = useContext(ValContext);
     const setToggle = useContext(FuncContext);
 
+
+    // allows only 1 sub menu to be displayed at the same time 
     function menuSwitch(){
       if(toggle[1] != props.id){
         setToggle([true, props.id]);
@@ -15,6 +38,7 @@ const ValContext = createContext();
       }
     }
 
+    // sub menu logic (has children)
     if(props.id != undefined){
       return(
         <div>
@@ -27,22 +51,22 @@ const ValContext = createContext();
       ); 
     }
     else{
+       // link logic (has no children)
       return(
         <div>
-          <div className = "mainButton flexer">
+          <div className = {props.itemClass}>
             {props.icon}
           </div>
-
-          {props.children}
         </div>
       );
     }
-  }
+}
 
 function PopoutMenu(props){
+  // encapsulates sub menu items. can have any amount of children, each of which are 'subButtons'
   return(
-    <div className = "menuBox flexer">
-      <div className = "menuList flexer" style = {props.style}>
+    <div className = {props.boxClass}>
+      <div className = {props.listClass} style = {props.style}>
         {props.children}
       </div>
     </div>
@@ -50,50 +74,53 @@ function PopoutMenu(props){
 }
 
 function PopoutItem(props){
+  // innermost menu item. has no children, these are 'subButtons'
   return(
-    <div className = "subButton flexer quietLink">
+    <div className = {props.itemClass}>
       {props.icon}
     </div>
   );
 }
 
 
-function Navbar(props){
-  const [toggle, setToggle] = useState([false, "99"]);
-
-  return(
-    <FuncContext.Provider value = {setToggle}>
-    <ValContext.Provider value = {toggle}>
-      <div className = "navbarBox flexer" >
-        <div className = "navbarList flexer" >
-          {props.children}
-        </div>
-      </div>
-    </ValContext.Provider>
-    </FuncContext.Provider>
-  );
-}
-
 export function Homebar(){
+  // all CSS styling is declared here (its ugly but worth it)
   return(
-    <Navbar>
-      <NavItem icon = "Cook" id = "0">
-        <PopoutMenu>
-          <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}}><PopoutItem icon = "Browse Recipes"></PopoutItem></Link>
-          <Link to="/" style= {{textDecoration: 'none', color: 'inherit'}}><PopoutItem icon = "Random Recipe"></PopoutItem></Link>
+    // the main menu
+    <Navbar boxClass = "navbarBox flexer" listClass = "navbarList flexer">
+    {/* Cook button */}
+      <NavItem icon = "Cook" id = "0" itemClass = "mainButton flexer">
+        <PopoutMenu boxClass = "menuBox flexer" listClass = "menuList flexer">
+
+          <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}}>
+            <PopoutItem icon = "Browse Recipes" itemClass = "subButton flexer quietLink"/>
+          </Link>
+
+          <Link to="/" style= {{textDecoration: 'none', color: 'inherit'}}>
+            <PopoutItem icon = "Random Recipe" itemClass = "subButton flexer quietLink"/>
+          </Link>
+
         </PopoutMenu>
       </NavItem>
+    {/* Recipes button */}
+      <NavItem icon = "Recipes" id = "1" itemClass = "mainButton flexer">
+        <PopoutMenu boxClass = "menuBox flexer" listClass = "menuList flexer" itemClass = "subButton flexer quietLink" style = {{top: '50%'}}>
 
-       <NavItem icon = "Recipes" id = "1">
-        <PopoutMenu style = {{top: '50%'}}>
-          <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}}><PopoutItem icon = "Manage Recipes"></PopoutItem></Link>
-          <Link to="/create" style= {{textDecoration: 'none', color: 'inherit'}}><PopoutItem icon = "Add New Recipe"></PopoutItem></Link>
+          <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}}>
+            <PopoutItem icon = "Manage Recipes" itemClass = "subButton flexer quietLink"/>
+          </Link>
+
+          <Link to="/create" style= {{textDecoration: 'none', color: 'inherit'}}>
+            <PopoutItem icon = "Add New Recipe" itemClass = "subButton flexer quietLink"/>
+          </Link>
+
         </PopoutMenu>
       </NavItem>
-
+      {/* Account button */}
       <Link to="/account" style= {{textDecoration: 'none', color: 'inherit'}}>
-        <NavItem icon = "Account" type = "3"></NavItem>
+        <NavItem icon = "Account" type = "3" itemClass = "mainButton flexer"/>
       </Link>
+
     </Navbar>
   );
 }
