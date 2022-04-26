@@ -87,10 +87,10 @@ export function Homebar(){
   // all CSS styling is declared here (its ugly but worth it)
   return(
     // the main menu
-    <Navbar boxClass = "navbarBox flexer" listClass = "navbarList flexer">
+    <Navbar boxClass = "homeBarBox flexer" listClass = "homeBarList flexer">
     {/* Cook button */}
       <NavItem icon = "Cook" id = "0" itemClass = "mainButton flexer">
-        <PopoutMenu boxClass = "menuBox flexer" listClass = "menuList flexer">
+        <PopoutMenu boxClass = "homeMenuBox flexer" listClass = "homeMenuList flexer">
 
           <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}}>
             <PopoutItem icon = "Browse Recipes" itemClass = "subButton flexer quietLink"/>
@@ -104,7 +104,7 @@ export function Homebar(){
       </NavItem>
     {/* Recipes button */}
       <NavItem icon = "Recipes" id = "1" itemClass = "mainButton flexer">
-        <PopoutMenu boxClass = "menuBox flexer" listClass = "menuList flexer" itemClass = "subButton flexer quietLink" style = {{top: '50%'}}>
+        <PopoutMenu boxClass = "homeMenuBox flexer" listClass = "homeMenuList flexer" itemClass = "subButton flexer quietLink" style = {{top: '50%'}}>
 
           <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}}>
             <PopoutItem icon = "Manage Recipes" itemClass = "subButton flexer quietLink"/>
