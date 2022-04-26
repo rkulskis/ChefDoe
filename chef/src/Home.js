@@ -1,10 +1,13 @@
 
+import {Homebar} from './Navbar';
+
 function Home(){
+	
 
 	return(
-		<div className = "Home flexer">
-
-		</div>
+		<div className = "Home">
+			<Homebar />
+    	</div>
 	);
 }
 

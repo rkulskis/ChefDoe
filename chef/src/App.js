@@ -1,5 +1,4 @@
 import React, {useState, useEffect, useRef, createContext, useContext} from 'react';
-import Navbar from './Navbar';
 import Home from './Home';
 import Account from './Account';
 import Library from './Library';
@@ -15,7 +14,7 @@ function App(){
     <Router>
       <div className = 'app'>
           <Routes>
-            <Route path = '/' element={<><Navbar /><Home /></>}/>
+            <Route path = '/' element={<Home />}/>
             <Route path = "/account" element={<Account />} />
             <Route path = "/library" element={<Library />} />
             <Route path = "/create" element={<Create />} />
