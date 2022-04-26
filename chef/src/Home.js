@@ -5,7 +5,7 @@ function Home(){
 	
 
 	return(
-		<div className = "Home">
+		<div className = "home">
 			<Homebar />
     	</div>
 	);

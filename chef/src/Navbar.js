@@ -22,7 +22,7 @@ function Navbar(props){
   );
 }
 
- function NavItem(props){
+function NavItem(props){
     // outermost menu item. can have any amount of children, usually sub menus. these are 'mainButtons'
     // note that props.id is only initialized if this NavItem has children 
     const toggle = useContext(ValContext);
@@ -124,4 +124,3 @@ export function Homebar(){
     </Navbar>
   );
 }
-export default Navbar;
