@@ -49,7 +49,7 @@ html, body{
 }
 
 /* ---------------------- main menu styles ---------------------- */
-#mainTab{
+.mainTab{
   z-index: 1;
   width: 300px;
   height: 100%;
@@ -75,7 +75,7 @@ html, body{
   color: #fff;
 }
 
-#cookCover{
+.cookCover{
   z-index: 1;
   left: 300px;
   width: 450px;
@@ -91,16 +91,16 @@ html, body{
   height: 50%;
 }
 
-#cookTab{
+.cookTab{
   background-color: #525050;
 }
 
-#manageTab{
+.manageTab{
   top: 50%;
   background-color: #858282;
 }
 
-#accTab{
+.accTab{
   left: 750px;
   height: 100%;
   background-color: #9c9898;
