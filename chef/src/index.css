@@ -48,7 +48,53 @@ html, body{
   src: url("./fonts/Ubuntu-Regular.ttf");
 }
 
+
+
+/* ---------------------- from tutorial ---------------------- */
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar{
+  height: 100%;
+  width: 300px;
+  background-color: black;
+}
+
+.navbar-nav{
+  height: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.dropdownBox{
+  left: 0px;
+  top: 0px;
+  transform: translate3d(300px, 0, 0px);
+  height: 100%;
+  width: 450px;
+  background-color: green;
+}
+
+.dropdown{
+  height: 50%;
+  width: 50%;
+  top: 0;
+  background-color: grey; 
+  justify-content: space-evenly;
+}
+
+.flip{
+  top: 50%;
+}
 /* ---------------------- main menu styles ---------------------- */
+
+
 .mainTab{
   z-index: 1;
   width: 300px;
@@ -56,9 +102,14 @@ html, body{
   background-color: #000;
 }
 
+.mainList{
+  width: 100%;
+  height: 100%;
+}
+
 .mainButton{
   z-index: 1;
-  width: 175px;
+  width: 150px;
   height: 75px;
   justify-content: center;
   background-color: blue;
@@ -110,6 +161,7 @@ html, body{
   width: 400px;
   height: 75px;
   justify-content: center;
+  background-color: red;
   cursor: pointer;
   font-family: uBold;
   font-size: xx-large;
