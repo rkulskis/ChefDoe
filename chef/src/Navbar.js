@@ -106,7 +106,7 @@ export function Homebar(){
       <NavItem icon = "Recipes" id = "1" itemClass = "mainButton flexer">
         <PopoutMenu boxClass = "homeMenuBox flexer" listClass = "homeMenuList flexer" itemClass = "subButton flexer quietLink" style = {{top: '50%'}}>
 
-          <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}}>
+          <Link to="/manager" style= {{textDecoration: 'none', color: 'inherit'}}>
             <PopoutItem icon = "Manage Recipes" itemClass = "subButton flexer quietLink"/>
           </Link>
 
