@@ -48,23 +48,30 @@ html, body{
   src: url("./fonts/Ubuntu-Regular.ttf");
 }
 
-
-
 /* ---------------------- from tutorial ---------------------- */
+.App{
 
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
-.navbar{
+.Home{
+
+}
+
+.content{
+
+}
+
+.quietLink{
+  text-decoration: none;
+}
+
+.navbarBox{
   height: 100%;
   width: 300px;
   background-color: black;
 }
 
-.navbar-nav{
+.navbarList{
   height: 100%;
   display: flex;
   position: relative;
@@ -72,7 +79,7 @@ ul {
   justify-content: space-around;
 }
 
-.dropdownBox{
+.menuBox{
   left: 0px;
   top: 0px;
   transform: translate3d(300px, 0, 0px);
@@ -81,7 +88,7 @@ ul {
   background-color: green;
 }
 
-.dropdown{
+.menuList{
   height: 50%;
   width: 50%;
   top: 0;

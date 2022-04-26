@@ -1,8 +1,48 @@
-import './index.css';
 import React, {useState, useEffect, useRef, createContext, useContext} from 'react';
+import Navbar from './Navbar';
+import Home from './Home';
+import Account from './Account';
+import Library from './Library';
+import Create from './Create';
+import {BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
 
-const FuncContext = createContext();
-const ValContext = createContext();
+
+
+
+function App(){
+
+  return(
+    <Router>
+      <div className = 'app'>
+          <Routes>
+            <Route path = '/' element={<><Navbar /><Home /></>}/>
+            <Route path = "/account" element={<Account />} />
+            <Route path = "/library" element={<Library />} />
+            <Route path = "/create" element={<Create />} />
+          </Routes>
+      </div>
+    </Router>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   // <div id = "mainTab" class = "flexer">
@@ -29,136 +69,136 @@ const ValContext = createContext();
   //     <div class="subButton acc flexer">Update Payment</div>
   //   </div>
 
-function App() {
-  // I'll fix the weird names when I can. just trying to get this together atm. 
-  // basically a global variable that only allows 1 menu open at once 
-  const [toggle, setToggle] = useState([false,false]);
-  return (
-    // allows for 'global variable' functionality
-    <FuncContext.Provider value = {setToggle}>
-      <ValContext.Provider value = {toggle}>
-        {/* 
-        the real meat of the visuals:
-            NavBar encapsulates the entire menu. 
-            clicking on a NavItem pulls up its associated sub menu OR page (account)
-            V NOT DONE YET V 
-            clicking on browse/manage goes to the library page 
-            clicking on random pulls up a random recipe's page 
-            clicking on add new does.. something 
-        */}
-        <NavBar>
-          <NavItem icon = "Cook" type = "1">
-            <DropdownMenu type = "1">
-              <DropdownItem icon = "Browse Recipes"></DropdownItem>
-              <DropdownItem icon = "Random Recipe"></DropdownItem>
-            </DropdownMenu>
-          </NavItem>
+// function App() {
+//   // I'll fix the weird names when I can. just trying to get this together atm. 
+//   // basically a global variable that only allows 1 menu open at once 
+//   const [toggle, setToggle] = useState([false,false]);
+//   return (
+//     // allows for 'global variable' functionality
+//     <FuncContext.Provider value = {setToggle}>
+//       <ValContext.Provider value = {toggle}>
+//         {/* 
+//         the real meat of the visuals:
+//             NavBar encapsulates the entire menu. 
+//             clicking on a NavItem pulls up its associated sub menu OR page (account)
+//             V NOT DONE YET V 
+//             clicking on browse/manage goes to the library page 
+//             clicking on random pulls up a random recipe's page 
+//             clicking on add new does.. something 
+//         */}
+//         <NavBar>
+//           <NavItem icon = "Cook" type = "1">
+//             <DropdownMenu type = "1">
+//               <DropdownItem icon = "Browse Recipes"></DropdownItem>
+//               <DropdownItem icon = "Random Recipe"></DropdownItem>
+//             </DropdownMenu>
+//           </NavItem>
 
-          <NavItem icon = "Recipes" type = "2">
-            <DropdownMenu type = "2">
-              <DropdownItem icon = "Manage Recipes"></DropdownItem>
-              <DropdownItem icon = "Add New Recipe"></DropdownItem>
-            </DropdownMenu>
-          </NavItem>
+//           <NavItem icon = "Recipes" type = "2">
+//             <DropdownMenu type = "2">
+//               <DropdownItem icon = "Manage Recipes"></DropdownItem>
+//               <DropdownItem icon = "Add New Recipe"></DropdownItem>
+//             </DropdownMenu>
+//           </NavItem>
 
-          <NavItem icon = "Account" type = "3">
-            {/*update address, update payment*/}
-          </NavItem>
-        </NavBar>
-      </ValContext.Provider>
-    </FuncContext.Provider>
-  );
-}
+//           <NavItem icon = "Account" type = "3">
+//             {/*update address, update payment*/}
+//           </NavItem>
+//         </NavBar>
+//       </ValContext.Provider>
+//     </FuncContext.Provider>
+//   );
+// }
 
 
-function NavBar(props){
+// function NavBar(props){
 
-  return (
-    <div className = "navbar flexer">
-      <ul className = "navbar-nav" >
-        {props.children}
-      </ul>
-    </div>
-  );
-}
+//   return (
+//     <div className = "navbar flexer">
+//       <ul className = "navbar-nav" >
+//         {props.children}
+//       </ul>
+//     </div>
+//   );
+// }
 
-function NavItem(props){
-  const toggles = useContext(ValContext);
-  const setToggle = useContext(FuncContext);
+// function NavItem(props){
+//   const toggles = useContext(ValContext);
+//   const setToggle = useContext(FuncContext);
 
-  function topSwitch(){
-    setToggle([!toggles[0],false]);
-  }
+//   function topSwitch(){
+//     setToggle([!toggles[0],false]);
+//   }
 
-  function bottomSwitch(){
-    setToggle([false,!toggles[1]]);
-  }
+//   function bottomSwitch(){
+//     setToggle([false,!toggles[1]]);
+//   }
 
-  if(props.type == "1"){
-    return(
-      <li className = "nav-item">
-        <div className = "mainButton flexer" onClick ={() => topSwitch()}>
-            {props.icon}
-        </div>
+//   if(props.type === "1"){
+//     return(
+//       <li className = "nav-item">
+//         <div className = "mainButton flexer" onClick ={() => topSwitch()}>
+//             {props.icon}
+//         </div>
 
-        {toggles[0] && props.children}
+//         {toggles[0] && props.children}
 
-      </li>
-    ); 
-  }
-  else if (props.type == "2"){
-    return(
-      <li className = "nav-item">
-        <div className = "mainButton flexer" onClick ={() => bottomSwitch()}>
-            {props.icon}
-        </div>
+//       </li>
+//     ); 
+//   }
+//   else if (props.type === "2"){
+//     return(
+//       <li className = "nav-item">
+//         <div className = "mainButton flexer" onClick ={() => bottomSwitch()}>
+//             {props.icon}
+//         </div>
 
-        {toggles[1] && props.children}
-      </li>
-    );
-  }
-  else{
-    return(
-      <li className = "nav-item">
-        <div className = "mainButton flexer" onClick ={() => bottomSwitch()}>
-            {props.icon}
-        </div>
+//         {toggles[1] && props.children}
+//       </li>
+//     );
+//   }
+//   else{
+//     return(
+//       <li className = "nav-item">
+//         <div className = "mainButton flexer" onClick ={() => bottomSwitch()}>
+//             {props.icon}
+//         </div>
 
-        {props.children}
+//         {props.children}
 
-      </li>
-    );
-  }
+//       </li>
+//     );
+//   }
 
-}
+// }
 
-function DropdownMenu(props){
-  if(props.type == "1"){
-    return(
-      <div className = "dropdownBox flexer">
-        <div className = "dropdown flexer">
-          {props.children}
-        </div>
-      </div>
-    );
-  } else{
-    return(
-      <div className = "dropdownBox flexer">
-        <div className = "dropdown flexer flip">
-          {props.children}
-        </div>
-      </div>
-    );
-  }
+// function DropdownMenu(props){
+//   if(props.type === "1"){
+//     return(
+//       <div className = "dropdownBox flexer">
+//         <div className = "dropdown flexer">
+//           {props.children}
+//         </div>
+//       </div>
+//     );
+//   } else{
+//     return(
+//       <div className = "dropdownBox flexer">
+//         <div className = "dropdown flexer flip">
+//           {props.children}
+//         </div>
+//       </div>
+//     );
+//   }
   
-}
+// }
 
-function DropdownItem(props){
-    return(
-        <div className = "subButton flexer">
-          {props.icon}
-        </div>
-    );
-  }
+// function DropdownItem(props){
+//     return(
+//         <div className = "subButton flexer">
+//           {props.icon}
+//         </div>
+//     );
+// }
 
 export default App;
