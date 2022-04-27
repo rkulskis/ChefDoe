@@ -38,7 +38,7 @@ export function ManageRecipes(props){
 				<h2> {recipe.name} </h2>
 				<p> Needs these ingredients: {recipe.ingredients.map((item) => " " + item )}</p>
 				<p> With these amounts: {recipe.measurements.map((item) => " " + item )}</p>
-				<button onClick= {() => console.log('edit time')}> Edit Recipe </button>
+				<button onClick= {() => console.log('edit time')}> Adjust Recipe </button>
 				<button onClick= {() => props.recipeRemove(recipe.id)}> Remove Recipe </button>
 			</div>
 		))

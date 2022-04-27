@@ -1,5 +1,6 @@
 import {BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
 import React, {createContext, useContext, useState} from 'react';
+import {pullRandom} from './Library';
 const FuncContext = createContext();
 const ValContext = createContext();
 
@@ -42,7 +43,7 @@ function NavItem(props){
     if(props.id != undefined){
       return(
         <div>
-          <div className = "mainButton flexer" onClick ={() => menuSwitch()}>
+          <div className = {props.itemClass} onClick ={() => menuSwitch()}>
             {props.icon}
           </div>
 
@@ -89,38 +90,53 @@ export function Homebar(){
     // the main menu
     <Navbar boxClass = "homeBarBox flexer" listClass = "homeBarList flexer">
     {/* Cook button */}
-      <NavItem icon = "Cook" id = "0" itemClass = "mainButton flexer">
+      <NavItem icon = "Cook" id = "0" itemClass = "homeMainButton flexer">
         <PopoutMenu boxClass = "homeMenuBox flexer" listClass = "homeMenuList flexer">
 
           <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}}>
-            <PopoutItem icon = "Browse Recipes" itemClass = "subButton flexer quietLink"/>
+            <PopoutItem icon = "Browse Recipes" itemClass = "homeSubButton flexer quietLink"/>
           </Link>
 
           <Link to="/" style= {{textDecoration: 'none', color: 'inherit'}}>
-            <PopoutItem icon = "Random Recipe" itemClass = "subButton flexer quietLink"/>
+            <PopoutItem icon = "Random Recipe" itemClass = "homeSubButton flexer quietLink"/>
           </Link>
 
         </PopoutMenu>
       </NavItem>
     {/* Recipes button */}
-      <NavItem icon = "Recipes" id = "1" itemClass = "mainButton flexer">
-        <PopoutMenu boxClass = "homeMenuBox flexer" listClass = "homeMenuList flexer" itemClass = "subButton flexer quietLink" style = {{top: '50%'}}>
+      <NavItem icon = "Recipes" id = "1" itemClass = "homeMainButton flexer">
+        <PopoutMenu boxClass = "homeMenuBox flexer" listClass = "homeMenuList flexer" itemClass = "homeSubButton flexer quietLink" style = {{top: '50%'}}>
 
           <Link to="/manager" style= {{textDecoration: 'none', color: 'inherit'}}>
-            <PopoutItem icon = "Manage Recipes" itemClass = "subButton flexer quietLink"/>
+            <PopoutItem icon = "Manage Recipes" itemClass = "homeSubButton flexer quietLink"/>
           </Link>
 
           <Link to="/create" style= {{textDecoration: 'none', color: 'inherit'}}>
-            <PopoutItem icon = "Add New Recipe" itemClass = "subButton flexer quietLink"/>
+            <PopoutItem icon = "Add New Recipe" itemClass = "homeSubButton flexer quietLink"/>
           </Link>
 
         </PopoutMenu>
       </NavItem>
       {/* Account button */}
       <Link to="/account" style= {{textDecoration: 'none', color: 'inherit'}}>
-        <NavItem icon = "Account" type = "3" itemClass = "mainButton flexer"/>
+        <NavItem icon = "Account" id = "2" itemClass = "homeMainButton flexer"/>
       </Link>
 
+    </Navbar>
+  );
+}
+
+export function Libbar(props){
+  return(
+    <Navbar boxClass = "libBarBox flexer" listClass = "libBarList flexer">
+
+      <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}}>
+        <NavItem icon = "Add a Recipe" id = "0" itemClass = "libMainButton flexer quietLink" />
+      </Link>
+
+      <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}} state ={pullRandom(props.list)} >
+        <NavItem icon = "Random Recipe" id = "1" itemClass = "libMainButton flexer quietLink" />
+      </Link>
     </Navbar>
   );
 }
