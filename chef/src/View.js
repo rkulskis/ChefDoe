@@ -39,16 +39,24 @@ export function DisplayRecipeInfo(props){
 			<div className = "labelContainer flexer">
 				<div className = "recipeLabel flexer"> INGREDIENTS: </div>
 				<div className = "recipeLabel flexer"> MEASUREMENTS: </div>
+				<div className = "recipeLabel flexer"> INGREDIENTS: </div>
+				<div className = "recipeLabel flexer"> MEASUREMENTS: </div>
 			</div>
 
-			<div className = "recipeLabel flexer"> INSTRUCTIONS: </div>
-
-			<div className = "recipeIngredients">{recipe.ingredients.map((item) => " " + item )}</div>
-			<div className = "recipeMeasurements">{recipe.measurements.map((item) => " " + item )}</div>
+			<div className = "recipeLabel flexer" style = {{bottom: '25px'}}> INSTRUCTIONS: </div>
 			<div className = "recipeSteps">{recipe.instructions} </div>
 
+			
+			<div className = "infoContainer flexer">
+				<div className = "recipeIngredients">{recipe.ingredients.map((item) => " " + item )}</div>
+				<div className = "recipeMeasurements">{recipe.measurements.map((item) => " " + item )}</div>
+				<div className = "recipeIngredients">{recipe.ingredients.map((item) => " " + item )}</div>
+				<div className = "recipeMeasurements">{recipe.measurements.map((item) => " " + item )}</div>
+
+			</div>
+
 			<div className = "portionSelectorContainer flexer">
-				<div className = "label">How many portions ?</div>
+				<div style = {{marginRight: '5px'}}>How many portions ?</div>
 				<HandleNumInput props = {props} func = {useContext(FuncContext)}/>
 			</div>
 		</div>
