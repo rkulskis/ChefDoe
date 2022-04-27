@@ -2843,8 +2843,9 @@ function Library(){
 export function pullRandom(props){
 	// given list of recipes, generate random id and return recipe with that id
 	const recipes = props;
-	const id = Math.floor((Math.random() * (recipes.length - 1)));
-	const randomRecipe = (recipes.filter(recipe => recipe.id === id))[0];
+	const id = Math.floor((Math.random() * (recipes.length) + 1));
+	const randomRecipe = (recipes.filter(recipe => recipe.id * 1 === id))[0];
+	console.log(randomRecipe);
 	return randomRecipe;
 }
 

@@ -39,8 +39,6 @@ export function DisplayRecipeInfo(props){
 			<div className = "labelContainer flexer">
 				<div className = "recipeLabel flexer"> INGREDIENTS: </div>
 				<div className = "recipeLabel flexer"> MEASUREMENTS: </div>
-				<div className = "recipeLabel flexer"> INGREDIENTS: </div>
-				<div className = "recipeLabel flexer"> MEASUREMENTS: </div>
 			</div>
 
 			<div className = "recipeLabel flexer" style = {{bottom: '25px'}}> INSTRUCTIONS: </div>
@@ -48,8 +46,6 @@ export function DisplayRecipeInfo(props){
 
 			
 			<div className = "infoContainer flexer">
-				<div className = "recipeIngredients">{recipe.ingredients.map((item) => " " + item )}</div>
-				<div className = "recipeMeasurements">{recipe.measurements.map((item) => " " + item )}</div>
 				<div className = "recipeIngredients">{recipe.ingredients.map((item) => " " + item )}</div>
 				<div className = "recipeMeasurements">{recipe.measurements.map((item) => " " + item )}</div>
 
