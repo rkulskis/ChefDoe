@@ -8,9 +8,7 @@ const ValContext = createContext();
 function View(){
 	const location = useLocation();
 	console.log(location.state);
-	console.log('bruh');
 	const recipe = location.state;
-	console.log(recipe);
 	const [portion, setPortion] = useState(1);
 
 	return(
@@ -31,17 +29,28 @@ function View(){
 
 export function DisplayRecipeInfo(props){
 	const state = props.data;
-	console.log(state);
 	const recipe = state[0];
 	return (
 		<div className = "recipe">
 			<div className = "recipeTitleBackground">
 				<div className = "recipeTitle"> {recipe.name}</div>
 			</div>
-			<div className = "recipeIngredients"> Needs these ingredients: {recipe.ingredients.map((item) => " " + item )}</div>
-			<div className = "recipeMeasurements"> With these amounts: {recipe.measurements.map((item) => " " + item )}</div>
-			<div className = "recipeSteps"> Instructions: {recipe.instructions} </div>
-			<HandleNumInput props = {props} func = {useContext(FuncContext)}/>
+
+			<div className = "labelContainer flexer">
+				<div className = "recipeLabel flexer"> INGREDIENTS: </div>
+				<div className = "recipeLabel flexer"> MEASUREMENTS: </div>
+			</div>
+
+			<div className = "recipeLabel flexer"> INSTRUCTIONS: </div>
+
+			<div className = "recipeIngredients">{recipe.ingredients.map((item) => " " + item )}</div>
+			<div className = "recipeMeasurements">{recipe.measurements.map((item) => " " + item )}</div>
+			<div className = "recipeSteps">{recipe.instructions} </div>
+
+			<div className = "portionSelectorContainer flexer">
+				<div className = "label">How many portions ?</div>
+				<HandleNumInput props = {props} func = {useContext(FuncContext)}/>
+			</div>
 		</div>
 	);
 }

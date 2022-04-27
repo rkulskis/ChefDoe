@@ -237,6 +237,9 @@ html, body{
 /*----------------------  view page styles  ----------------------*/
 
 .recipeContainer{
+  font-family: uRegular;
+  font-size: medium;
+  cursor: default;
   width: 100%;
   height: 100%;
   top: 152px;
@@ -254,10 +257,6 @@ html, body{
   justify-content: center;
 }
 
-.recipe:hover{
-  background-color: #1d7c91;
-}
-
 .recipeTitle{
   font-family: uBold;
   font-size: x-large;
@@ -272,4 +271,33 @@ html, body{
   position: relative;
   border-radius: 3px;
   background-color: white;
+}
+
+.recipeLabel{
+  font-family: uBold;
+  font-size: large;
+  background-color: grey;
+  border-radius: 4px;
+  width: 160px;
+  height: 30px;
+  position: relative;
+}
+
+.labelContainer{
+  width: inherit;
+  bottom: 250px;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: #121212;
+}
+
+.portionSelectorContainer{
+  font-family: uMedium;
+  font-size: large;
+  cursor: default;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  bottom: 85px;
+  margin-right: 5px;
 }
