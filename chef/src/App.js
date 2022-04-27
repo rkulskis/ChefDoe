@@ -1,23 +1,25 @@
-import React, {useState, useEffect, useRef, createContext, useContext} from 'react';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import React from 'react';
 import Home from './Home';
 import Library from './Library';
-import Prepare from './Prepare';
-import Manager from './Manager';
-import {BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
-
-
+import Create from './Create';
+import View from './View';
+import Order from './Order';
+import Confirmation from './Confirmation';
 
 function App(){
   return(
     <Router>
       <div className = 'app'>
-      {/*only runs on reload */}
-        {useEffect(() =>{console.log('link start')}, [])}
           <Routes>
-            <Route path = '/' element={<Home />}/>
+          {/*I spent too much time on this to delete it*/}
+            <Route path = "/secret" element={<Home />}/>    
+            <Route path = "/" element={<Library />}/>
             <Route path = "/library" element={<Library />} />
-            <Route path = "/create" element={<Prepare />} />
-            <Route path = "/manager" element={<Manager />} />
+            <Route path = "/create" element={<Create />} />
+            <Route path = "/view" element={<View/>} />
+            <Route path = "/order" element={<Order/>} />
+            <Route path = "/confirmation" element={<Confirmation/>} />
           </Routes>
       </div>
     </Router>

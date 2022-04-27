@@ -131,6 +131,7 @@ html, body{
   position: fixed;
   font-family: uBoldItalic;
   font-size: xx-large;
+  cursor: default;
 }
 
 .libBarBox{
@@ -223,7 +224,6 @@ html, body{
   cursor: default;
   display: flex;
   justify-content: center;
-  /*padding: 0px 10px 0px 10px;*/
 }
 
 .recipePreviewTitleBackground{
@@ -231,5 +231,45 @@ html, body{
   height: 40px;
   display: block;
   position: relative;
+  background-color: white;
+}
+
+/*----------------------  view page styles  ----------------------*/
+
+.recipeContainer{
+  width: 100%;
+  height: 100%;
+  top: 152px;
+}
+
+.recipe{
+  height: 100%;
+  width: 75%;
+  outline: black;
+  outline-width: 4px;
+  outline-style: solid;
+  position: relative;
+  background-color: #89a9ab;
+  margin: 2px 1px 1px 1px ;
+  justify-content: center;
+}
+
+.recipe:hover{
+  background-color: #1d7c91;
+}
+
+.recipeTitle{
+  font-family: uBold;
+  font-size: x-large;
+  cursor: default;
+  display: flex;
+  justify-content: center;
+}
+
+.recipeTitleBackground{
+  width: 100%;
+  display: block;
+  position: relative;
+  border-radius: 3px;
   background-color: white;
 }

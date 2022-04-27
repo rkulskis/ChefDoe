@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import React, {createContext, useContext, useState} from 'react';
 import {pullRandom} from './Library';
 const FuncContext = createContext();
@@ -32,7 +32,7 @@ function NavItem(props){
 
     // allows only 1 sub menu to be displayed at the same time 
     function menuSwitch(){
-      if(toggle[1] != props.id){
+      if(toggle[1] !== props.id){
         setToggle([true, props.id]);
       }else{
         setToggle([!toggle[0], props.id]);
@@ -40,7 +40,7 @@ function NavItem(props){
     }
 
     // sub menu logic (has children)
-    if(props.id != undefined){
+    if(props.id !== undefined){
       return(
         <div>
           <div className = {props.itemClass} onClick ={() => menuSwitch()}>
@@ -129,14 +129,77 @@ export function Homebar(){
 export function Libbar(props){
   return(
     <Navbar boxClass = "libBarBox flexer" listClass = "libBarList flexer">
-
-      <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}}>
-        <NavItem icon = "Add a Recipe" id = "0" itemClass = "libMainButton flexer quietLink" />
+      {/* create new recipe button */}
+      <Link to="/create" style= {{textDecoration: 'none', color: 'inherit'}}>
+        <NavItem icon = "Add a Recipe" itemClass = "libMainButton flexer quietLink" />
       </Link>
-
-      <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}} state ={pullRandom(props.list)} >
-        <NavItem icon = "Random Recipe" id = "1" itemClass = "libMainButton flexer quietLink" />
+      {/* select random recipe button */}
+      <Link to="/view" style= {{textDecoration: 'none', color: 'inherit'}} state ={pullRandom(props.list)} >
+        <NavItem icon = "Random Recipe" itemClass = "libMainButton flexer quietLink" />
       </Link>
     </Navbar>
   );
+}
+
+export function Createbar(){
+  // create and save
+  return(
+    <Navbar boxClass = "libBarBox flexer" listClass = "libBarList flexer">
+      {/* cancel button */}
+      <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}}>
+        <NavItem icon = "Cancel" itemClass = "libMainButton flexer quietLink" />
+      </Link>
+
+      {/* save and continue to view button*/}
+      <Link to="/view" style= {{textDecoration: 'none', color: 'inherit'}} state={'PLACE_NEW_DATA_HERE'} >
+        <NavItem icon = "Save and View" itemClass = "libMainButton flexer quietLink" />
+      </Link>
+    </Navbar>
+  );
+}
+
+export function Viewbar(props){
+    // see information and select portion 
+    return(
+      <Navbar boxClass = "libBarBox flexer" listClass = "libBarList flexer">
+      {/* back button */}
+        <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}} >
+          <NavItem icon = "Back to Library" itemClass = "libMainButton flexer quietLink" />
+        </Link>
+
+        {/* continue to order page button*/}
+        <Link to="/order" style= {{textDecoration: 'none', color: 'inherit'}} state={[props.data, props.val]} >
+          <NavItem icon = "Continue" itemClass = "libMainButton flexer quietLink" />
+        </Link>
+      </Navbar>
+    ); 
+}
+
+export function Orderbar(props){
+    // choose ingredients needed, place order 
+    return(
+      <Navbar boxClass = "libBarBox flexer" listClass = "libBarList flexer">
+      {/* back button, needs [0] to prevent data size overflow*/}
+        <Link to="/view" style= {{textDecoration: 'none', color: 'inherit'}} state = {props.data[0]}>
+          <NavItem icon = "Back to Recipe" itemClass = "libMainButton flexer quietLink" />
+        </Link>
+
+        {/* place order button*/}
+        <Link to="/confirmation" style= {{textDecoration: 'none', color: 'inherit'}} state={props.data} >
+          <NavItem icon = "Place Order" itemClass = "libMainButton flexer quietLink" />
+        </Link>
+      </Navbar>
+    ); 
+}
+
+export function Confirmbar(){
+    // display ingredients ordered
+    return(
+      <Navbar boxClass = "libBarBox flexer" listClass = "libBarList flexer">
+      {/* back button */}
+        <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}}>
+          <NavItem icon = "Back to Library" itemClass = "libMainButton flexer quietLink" />
+        </Link>
+      </Navbar>
+    ); 
 }
