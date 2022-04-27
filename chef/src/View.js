@@ -16,7 +16,7 @@ function View(){
     	<ValContext.Provider value = {portion}>
 		<div className="view">
 			{useEffect(() =>{console.log('view page loaded')})}
-			<div className = 'libraryTitle flexer'>VIEW PAGE</div>
+			<div className = 'libraryTitle flexer'>RECIPE VIEW</div>
 			<Viewbar data = {recipe} val = {portion} />
 			<div className = 'recipeContainer flexer'> 
 				<DisplayRecipeInfo data ={[recipe, portion]}/> 
@@ -30,6 +30,9 @@ function View(){
 export function DisplayRecipeInfo(props){
 	const state = props.data;
 	const recipe = state[0];
+	const ing1 = recipe.ingredients[0];
+	const mes1 = recipe.measurements[0];
+
 	return (
 		<div className = "recipe">
 			<div className = "recipeTitleBackground">
@@ -44,10 +47,17 @@ export function DisplayRecipeInfo(props){
 			<div className = "recipeLabel flexer" style = {{bottom: '25px'}}> INSTRUCTIONS: </div>
 			<div className = "recipeSteps">{recipe.instructions} </div>
 
-			
 			<div className = "infoContainer flexer">
-				<div className = "recipeIngredients">{recipe.ingredients.map((item) => " " + item )}</div>
-				<div className = "recipeMeasurements">{recipe.measurements.map((item) => " " + item )}</div>
+				<div className = "recipeIngredients">{
+					(
+						recipe.ingredients.map((item) => ing1 === item ? item : " -- " + item)
+					)
+				}</div>
+				<div className = "recipeMeasurements">{
+					(
+						recipe.measurements.map((item) =>   mes1 === item ? item : " -- " + item)
+					)
+				}</div>
 
 			</div>
 

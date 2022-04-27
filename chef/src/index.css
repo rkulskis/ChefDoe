@@ -205,7 +205,7 @@ html, body{
 
 .recipePreview{
   width: 150px;
-  height: 100px;
+  height: 120px;
   outline: black;
   outline-width: 4px;
   outline-style: solid;
@@ -229,10 +229,11 @@ html, body{
 
 .recipePreviewTitleBackground{
   width: inherit;
-  height: 40px;
+  height: 60px;
   display: block;
   position: relative;
   background-color: white;
+  overflow: auto;
 }
 
 /*----------------------  view page styles  ----------------------*/
@@ -300,7 +301,7 @@ html, body{
   /*border: 2.5px solid #121212;*/
   display: flex;
   height: inherit;
-  width: 300px;
+  width: 320px;
   position: relative;
   overflow: auto;
   flex-direction: row;
@@ -311,7 +312,7 @@ html, body{
   /*border: 2.5px solid #121212;*/
   display: flex;
   height: inherit;
-  width: 300px;
+  width: 320px;
   position: relative;
   overflow: auto;
   flex-direction: row;
@@ -331,7 +332,7 @@ html, body{
   /*background-color: black;*/
   height: 300px;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   position: relative;
   top: 30px;
@@ -339,11 +340,52 @@ html, body{
 }
 
 .portionSelectorContainer{
-  font-family: uMedium;
+  font-family: uBold;
   font-size: large;
   cursor: default;
   flex-direction: row;
   justify-content: flex-end;
   position: relative;
   transform: translateY(-600px);
+}
+
+
+/*----------------------  confirmation page styles  ----------------------*/
+.orderPopupContainer{
+  top: 200px;
+  height: 150px;
+  width: 100%;
+  background-color: white;
+  position: absolute;
+}
+
+.orderPopup{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  height: 50px;
+  width: 225px;
+  background-color: grey;
+  font-family: uBold;
+  font-size: xx-large;
+  cursor: default;
+}
+
+.orderSummary{
+  font-family: uRegular;
+  font-size: large;
+  cursor: default;
+}
+
+.orderSubtext{
+  font-family: uRegular;
+  font-size: large;
+  cursor: default;
+}
+
+.orderThank{
+  font-family: uBoldItalic;
+  font-size: medium;
+  cursor: default;
 }

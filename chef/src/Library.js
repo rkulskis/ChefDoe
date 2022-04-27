@@ -398,7 +398,7 @@ function Library(){
             "2 tablespoon olive oil\r",
             "12 portobello mushroom caps, wiped clean\r",
             "2 tablespoon fresh chives, finely chopped, for garnish, optional\r",
-            "1 serving [Sherry Vinaigrette](http:\/\/www.xanthir.com\/recipes\/showrecipe.php?id=18)"
+            "1 serving [Sherry Vinaigrette]"
         ],
 		"ingredients": [
             "manchego cheese\r",
