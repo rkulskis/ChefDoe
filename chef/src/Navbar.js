@@ -217,7 +217,7 @@ export function Reviewbar(props){
 
         {/* place order button*/}
         <Link to="/confirmation" style= {{textDecoration: 'none', color: 'inherit'}} state={[props.recipe, props.portion, props.orderInfo]} >
-          <NavItem icon = "Confirm Order" itemClass = "mainButton flexer quietLink" />
+          <NavItem icon = "Place Order" itemClass = "mainButton flexer quietLink" />
         </Link>
       </Navbar>
     ); 

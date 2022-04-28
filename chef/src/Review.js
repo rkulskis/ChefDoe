@@ -19,7 +19,7 @@ function Review(){
 	return(
 		<div className="review">
 			{useEffect(() =>{console.log('order review page loaded')})}
-			<div className = 'menuTitle flexer'>ChefDoe</div>
+			<div className = 'menuTitle flexer'>REVIEW ORDER</div>
 			<Reviewbar recipe = {recipe} portion = {portion} orderInfo = {orderInfo}/>
 
 			<div className = 'cartContainer flexer'>
