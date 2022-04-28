@@ -6,6 +6,7 @@ import Create from './Create';
 import View from './View';
 import Order from './Order';
 import Confirmation from './Confirmation';
+import Manager from './Manager';
 
 function App(){
   return(
@@ -13,7 +14,7 @@ function App(){
       <div className = 'app'>
           <Routes>
           {/*I spent too much time on this to delete it*/}
-            <Route path = "/secret" element={<Home />}/>    
+            <Route path = "/secret" element={<Manager />}/>    
             <Route path = "/" element={<Library />}/>
             <Route path = "/library" element={<Library />} />
             <Route path = "/create" element={<Create />} />

@@ -14,6 +14,7 @@ export function HandleNumInput(props){
 	);
 }
 
+
 function Create(){
 	const location = useLocation();
 	console.log(location.state);

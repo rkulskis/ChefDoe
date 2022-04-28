@@ -3,7 +3,7 @@
 html, body{
   margin: 0 auto;
   background-color: #484e5e ;
-
+  /*overflow: auto;*/
 }
 
 .flexer{
@@ -388,4 +388,20 @@ html, body{
   font-family: uBoldItalic;
   font-size: medium;
   cursor: default;
+}
+
+.test{
+  background-color: white;
+  top: 150px;
+  width: 100%;
+  height: 50%;
+  font-size: small;
+  justify-content: space-around;
+  align-items: stretch;
+  flex-direction: row;
+}
+
+.testy{
+  height: 100px;
+  width: 100px;
 }

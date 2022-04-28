@@ -180,7 +180,7 @@ export function Orderbar(props){
     return(
       <Navbar boxClass = "libBarBox flexer" listClass = "libBarList flexer">
       {/* back button, needs [0] to prevent data size overflow*/}
-        <Link to="/view" style= {{textDecoration: 'none', color: 'inherit'}} state = {props.data[0]}>
+        <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}} state = {props.data[0]}>
           <NavItem icon = "Back to Recipe" itemClass = "libMainButton flexer quietLink" />
         </Link>
 

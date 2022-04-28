@@ -63,7 +63,7 @@ export function DisplayRecipeInfo(props){
 
 			<div className = "portionSelectorContainer flexer">
 				<div style = {{marginRight: '5px'}}>How many portions ?</div>
-				<HandleNumInput props = {props} func = {useContext(FuncContext)}/>
+				<HandleNumInput func = {useContext(FuncContext)}/>
 			</div>
 		</div>
 	);
