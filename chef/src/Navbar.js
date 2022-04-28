@@ -63,6 +63,12 @@ function NavItem(props){
     }
 }
 
+
+
+
+
+
+
 function PopoutMenu(props){
   // encapsulates sub menu items. can have any amount of children, each of which are 'subButtons'
   return(
@@ -126,6 +132,15 @@ export function Homebar(){
   );
 }
 
+
+
+// spent a long time on Homebar and allowing for a menu to have ARBITRARY amounts of submenus but whatever
+// design changed and I just had to drop it, ultimately didn't need them.
+
+
+
+// these are some of the most important functions. they allow for page transitions and for state to be transferred too 
+
 export function Libbar(props){
   return(
     <Navbar boxClass = "menuBarBox flexer" listClass = "menuBarList flexer">
@@ -168,7 +183,7 @@ export function Viewbar(props){
         </Link>
 
         {/* continue to order page button*/}
-        <Link to="/order" style= {{textDecoration: 'none', color: 'inherit'}} state={[props.data, props.val]} >
+        <Link to="/order" style= {{textDecoration: 'none', color: 'inherit'}} state={[props.recipe, props.portion]} >
           <NavItem icon = "Continue" itemClass = "mainButton flexer quietLink" />
         </Link>
       </Navbar>
@@ -176,24 +191,40 @@ export function Viewbar(props){
 }
 
 export function Orderbar(props){
-    // choose ingredients needed, place order 
+    // choose ingredients needed  
     return(
       <Navbar boxClass = "menuBarBox flexer" listClass = "menuBarList flexer">
-      {/* back button, needs [0] to prevent data size overflow*/}
-        <Link to="/view" style= {{textDecoration: 'none', color: 'inherit'}} state = {props.data}>
+        <Link to="/view" style= {{textDecoration: 'none', color: 'inherit'}} state = {props.recipe}>
           <NavItem icon = "Back to Recipe" itemClass = "mainButton flexer quietLink" />
         </Link>
 
+        {/* continue to review page button*/}
+        <Link to="/review" style= {{textDecoration: 'none', color: 'inherit'}} state={[props.recipe, props.portion, props.cart]} >
+          <NavItem icon = "Continue" itemClass = "mainButton flexer quietLink" />
+        </Link>
+      </Navbar>
+    ); 
+}
+
+export function Reviewbar(props){
+    // review ingredients chosen, input information
+    return(
+      <Navbar boxClass = "menuBarBox flexer" listClass = "menuBarList flexer">
+        {/* back button */}
+        <Link to="/order" style= {{textDecoration: 'none', color: 'inherit'}} state = {[props.recipe, props.portion]}>
+          <NavItem icon = "Back to Create" itemClass = "mainButton flexer quietLink" />
+        </Link>
+
         {/* place order button*/}
-        <Link to="/confirmation" style= {{textDecoration: 'none', color: 'inherit'}} state={[props.data, props.orderInfo]} >
-          <NavItem icon = "Place Order" itemClass = "mainButton flexer quietLink" />
+        <Link to="/confirmation" style= {{textDecoration: 'none', color: 'inherit'}} state={[props.recipe, props.portion, props.orderInfo]} >
+          <NavItem icon = "Confirm Order" itemClass = "mainButton flexer quietLink" />
         </Link>
       </Navbar>
     ); 
 }
 
 export function Confirmbar(){
-    // display ingredients ordered
+    // display confirmation message
     return(
       <Navbar boxClass = "menuBarBox flexer" listClass = "menuBarList flexer">
       {/* back button */}

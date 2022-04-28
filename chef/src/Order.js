@@ -19,11 +19,6 @@ function Order(){
 	const [toIgnore, setToIgnore] = useState(ingredientList);
 	const [toOrder, setToOrder] = useState([]);
 
-	// debug printing
-	// {useEffect(() =>{console.log(ingredientList)}, [toOrder, toIgnore])}
-	// {useEffect(() =>{console.log(toIgnore)}, [toOrder, toIgnore])}
-	// {useEffect(() =>{console.log(toOrder)}, [toOrder, toIgnore])}
-
 	function selectIngredient(ind){
 		// move ingredient from toIgnore into toOrder
 		const otherIngredients = toIgnore.filter(ingredient => ingredient.ind !== ind);
@@ -48,16 +43,15 @@ function Order(){
 		<div className="order">
 			{useEffect(() =>{console.log('order page loaded')})}
 			<div className = 'menuTitle flexer'>CREATE ORDER</div>
-			<h2>order recipe here!</h2>
-			<Orderbar data = {recipe} orderInfo ={toOrder}/>
+			<Orderbar recipe = {recipe} portion = {numPortions} cart ={toOrder}/>
 
 			<div className = "ingredientsContainer flexer"> 
  				<div className = "ingredientsBox flexer">
- 					<div className = "ingredientLabel">Ingredients you have:</div>
+ 					<div className = "ingredientBoxLabel">Ingredients you have:</div>
  					<ManageIngredients list = {toIgnore} func = {selectIngredient} />
  				</div>
  				<div className = "ingredientsBox flexer">
- 					<div className = "ingredientLabel">Ingredients you need:</div>
+ 					<div className = "ingredientBoxLabel">Ingredients you need:</div>
  					<ManageIngredients list = {toOrder} func = {returnIngredient} />
  				</div>
  			</div>
@@ -82,7 +76,7 @@ function ApplyPortions(props){
 		// does magic to pull the numbers out of a string and replace those numbers in the original string with a multiple 
 		// i.e. '0.5 cup ketchup -> 1.5 cup ketchup' in one line 
 		props[0].map((item) =>(
-			item = item.replace(item.match(/[+-]?\d+(\.\d+)?/g)[0], item.match(/[+-]?\d+(\.\d+)?/g)[0] * props[1])
+			item = item.replace(item.match(/[+-]?\d+(\.\d+)?/g)[0], (item.match(/[+-]?\d+(\.\d+)?/g)[0] * props[1]))
 		))
 	);
 }

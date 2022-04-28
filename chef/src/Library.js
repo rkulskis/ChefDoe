@@ -1990,9 +1990,9 @@ function Library(){
 		"measurements": [
             "2 cup water",
             "1 cup sugar",
-            "1 cup fresh lemon juice, (about 6 lemons=1 cup juice)",
+            "1 cup fresh lemon juice, (about six lemons)",
             "1 lemon, sliced for serving",
-            "1 pound strawberries, hulled and halved (about  cups)",
+            "1 pound strawberries, hulled and halved",
             "16 oz seltzer, chilled",
             "1 serving of mint"
         ], ratio: 1
@@ -2780,7 +2780,7 @@ export function pullRandom(props){
 
 export function DisplayRecipePreviews(props){
 	return (
-		/*for each recipe, access its data. key has to be a unique property for each item because reasons, id works well*/
+		/*for each recipe, display its name and provide a link to the view page with its data*/
 		props.list.map((recipe) =>( 
 			<div className = "recipePreview flexer" key ={recipe.id}>
 				<div className = "recipePreviewTitleBackground">
