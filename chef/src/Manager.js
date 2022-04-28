@@ -54,6 +54,7 @@ function Manager(){
 				<div>
 					<ManageRecipes list = {outsideArray} />
 				</div>
+
 			</div>
 		</div>
 	);

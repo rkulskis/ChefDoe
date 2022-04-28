@@ -8,8 +8,11 @@ function Order(){
 	const recipe = location.state[0];
 	const numPortions = location.state[1];
 
-	// makes list of objects to represent the ingredients, instead of just strings. needed for manage logic 
-	const ingredientList = recipe.ingredients.map((val, index) => ({name: val, ind: index}));
+	// create list of adjusted measurements to give to ingredient objects
+	const measurementList = ApplyPortions([recipe.measurements, numPortions]);
+
+	// create list of objects to represent the ingredients instead of just strings. needed for manage logic 
+	const ingredientList = recipe.ingredients.map((val, index) => ({name: val, ind: index, description: measurementList[index]}));
 
 	// by making 2 hooks and having the below methods, we can ping-pong ingredients between the lists
 	// bonus points because it's like a little minigame 
@@ -17,9 +20,9 @@ function Order(){
 	const [toOrder, setToOrder] = useState([]);
 
 	// debug printing
-	{useEffect(() =>{console.log(ingredientList)}, [toOrder, toIgnore])}
-	{useEffect(() =>{console.log(toIgnore)}, [toOrder, toIgnore])}
-	{useEffect(() =>{console.log(toOrder)}, [toOrder, toIgnore])}
+	// {useEffect(() =>{console.log(ingredientList)}, [toOrder, toIgnore])}
+	// {useEffect(() =>{console.log(toIgnore)}, [toOrder, toIgnore])}
+	// {useEffect(() =>{console.log(toOrder)}, [toOrder, toIgnore])}
 
 	function selectIngredient(ind){
 		// move ingredient from toIgnore into toOrder
@@ -46,17 +49,16 @@ function Order(){
 			{useEffect(() =>{console.log('order page loaded')})}
 			<div className = 'menuTitle flexer'>CREATE ORDER</div>
 			<h2>order recipe here!</h2>
-			<Orderbar data = {recipe}/>
+			<Orderbar data = {recipe} orderInfo ={toOrder}/>
 
-			<div className = "test flexer"> 
- 				<div>
+			<div className = "ingredientsContainer flexer"> 
+ 				<div className = "ingredientsBox flexer">
+ 					<div className = "ingredientLabel">Ingredients you have:</div>
  					<ManageIngredients list = {toIgnore} func = {selectIngredient} />
  				</div>
- 				<div>
+ 				<div className = "ingredientsBox flexer">
+ 					<div className = "ingredientLabel">Ingredients you need:</div>
  					<ManageIngredients list = {toOrder} func = {returnIngredient} />
- 				</div>
- 				<div>
- 					<ManageIngredients list = {ingredientList} />
  				</div>
  			</div>
 
@@ -66,12 +68,21 @@ function Order(){
 
 function ManageIngredients(props){
 	return (
-		/**/
+		/*display the ingredients and provide function to move them*/
 		props.list.map((ingredient) =>(
-			<div className = "recipePreview testy" key ={ingredient.ind}>
-				<h2> {ingredient.name} </h2>
-				<button onClick= {() => props.func(ingredient.ind)}> Move </button>
+			<div className = "ingredient flexer" key = {ingredient.ind} onClick= {() => props.func(ingredient.ind)}>
+				{ingredient.description}
 			</div>
+		))
+	);
+}
+
+function ApplyPortions(props){
+	return(
+		// does magic to pull the numbers out of a string and replace those numbers in the original string with a multiple 
+		// i.e. '0.5 cup ketchup -> 1.5 cup ketchup' in one line 
+		props[0].map((item) =>(
+			item = item.replace(item.match(/[+-]?\d+(\.\d+)?/g)[0], item.match(/[+-]?\d+(\.\d+)?/g)[0] * props[1])
 		))
 	);
 }

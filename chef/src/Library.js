@@ -28,7 +28,8 @@ function Library(){
             "olive oil",
             "frozen shrimp"
         ],
-		measurements: [ "0.66 cup panko",	
+		measurements: [ 
+        "0.66 cup panko",	
 		"0.25 teaspoon red pepper flakes",
 		"0.5 lemon, zested and juiced",
 		"1 extra-large egg yolk",
@@ -80,7 +81,7 @@ function Library(){
             "12 basil leaves",
             "1 c heavy cream",
             "0.25 lb unsalted butter",
-            "Salt",
+            "0.25 tsp salt",
             "0.25 tsp black pepper"
         ], ratio:1
     },
@@ -349,7 +350,7 @@ function Library(){
             "2 teaspoon kosher salt, plus more to taste",
             "1 cup extra-virgin olive oil, preferably Greek",
             "1 head romaine lettuce, trimmed of tough stems and torn into bite-sized pieces",
-            "6oz kalamata olives",
+            "6 oz kalamata olives",
             "0.5 pound Feta cheese, crumbled",
             "1 cucumber, trimmed, cut into 1 inch chunks",
             "1.5 cup grape tomatoes, halved",
@@ -829,7 +830,7 @@ function Library(){
         ],
 
 		"measurements": [
-            "Fresh black pepper",
+            "1 teaspoon fresh black pepper",
             "1 teaspoon kosher salt",
             "0.5 teaspoon hot sauce",
             "4 ounce evaporated milk",
@@ -958,7 +959,7 @@ function Library(){
             "0.25 teaspoon cayenne",
             "4 large tomatoes, peeled, seeded and chopped",
             "2 can black beans, rinsed and drained",
-            "15oz can tomato sauce",
+            "15 oz can tomato sauce",
             "1 cup vegetable stock, or water",
             "1 lime, juiced",
             "0.25 cup cilantro, chopped",
@@ -1099,7 +1100,7 @@ function Library(){
             "1 large egg, beaten",
             "1 pinch of salt and pepper",
             "4 serving [marinara sauce]",
-            "olive oil",
+            "0.25 cup olive oil",
             "0.5 cup panko",
       
         ], ratio: 1
@@ -1170,7 +1171,7 @@ function Library(){
         ],
 		"measurements": [
             "1 cup cooked rice",
-            "Sesame oil",
+            "4 oz sesame oil",
             "8 oz extra-firm tofu, cut into slices 1-inch long and as thick as a pencil",
             "4 clove garlic, minced",
             "5 green onions, chopped with white and green parts separated",
@@ -1197,8 +1198,8 @@ function Library(){
             "unsalted butter"
         ],
 		"measurements": [
-            "Dijon mustard",
-            "Baguette",
+            "1 serving dijon mustard",
+            "1 baguette",
             "2 oz brie cheese, sliced",
             "0.25 green apple, thinly sliced",
             "2 tablespoon unsalted butter"
@@ -1476,7 +1477,7 @@ function Library(){
             "2 clove garlic, minced",
             "2 tbsp extra-virgin olive oil",
             "2 tsp italian seasoning",
-            "15oz can crushed Italian tomatoes",
+            "15 oz can crushed Italian tomatoes",
             "4 pinches of salt and freshly ground pepper"
         ], ratio: 1
     },
@@ -2441,7 +2442,7 @@ function Library(){
             "0.5 tsp ground ginger",
             "0.5 tsp ground allspice",
             "0.25 tsp salt",
-            "Pinch of freshly ground white pepper",
+            "0.25 tsp freshly ground white pepper",
             "2 tbsp dark rum",
             "0.25 cup sugar",
             "1 cup heavy cream",
@@ -2774,7 +2775,6 @@ export function pullRandom(props){
 	const recipes = props;
 	const id = Math.floor((Math.random() * (recipes.length)));
 	const randomRecipe = (recipes.filter(recipe => recipe.id * 1 === id))[0];
-	console.log(randomRecipe);
 	return randomRecipe;
 }
 

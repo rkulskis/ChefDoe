@@ -334,6 +334,49 @@ html, body{
   transform: translateY(-600px);
 }
 
+/*----------------------  order page styles  ----------------------*/
+.ingredientsContainer{
+  background-color: white;
+  top: 150px;
+  width: 100%;
+  height: 75%;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  overflow: auto;
+}
+
+.ingredientsBox{
+  background-color: grey;
+  width: 48%;
+  height: 200px;
+  top: 50px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
+
+.ingredientLabel{
+  position: absolute;
+}
+
+.ingredient{
+  width: 200px;
+  height: 100px;
+  outline: black;
+  outline-width: 4px;
+  outline-style: solid;
+  position: relative;
+  background-color: #89a9ab;
+  margin: 2px 1px 1px 1px ;
+  justify-content: center;
+  font-family: uMedium;
+  font-size: medium;
+  cursor: default;
+}
+
 
 /*----------------------  confirmation page styles  ----------------------*/
 .confirmMessageContainer{
@@ -369,18 +412,3 @@ html, body{
   cursor: default;
 }
 
-.test{
-  background-color: white;
-  top: 150px;
-  width: 100%;
-  height: 50%;
-  font-size: small;
-  justify-content: space-around;
-  align-items: stretch;
-  flex-direction: row;
-}
-
-.testy{
-  height: 100px;
-  width: 100px;
-}

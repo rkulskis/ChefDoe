@@ -180,12 +180,12 @@ export function Orderbar(props){
     return(
       <Navbar boxClass = "menuBarBox flexer" listClass = "menuBarList flexer">
       {/* back button, needs [0] to prevent data size overflow*/}
-        <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}} state = {props.data[0]}>
+        <Link to="/view" style= {{textDecoration: 'none', color: 'inherit'}} state = {props.data}>
           <NavItem icon = "Back to Recipe" itemClass = "mainButton flexer quietLink" />
         </Link>
 
         {/* place order button*/}
-        <Link to="/confirmation" style= {{textDecoration: 'none', color: 'inherit'}} state={props.data} >
+        <Link to="/confirmation" style= {{textDecoration: 'none', color: 'inherit'}} state={[props.data, props.orderInfo]} >
           <NavItem icon = "Place Order" itemClass = "mainButton flexer quietLink" />
         </Link>
       </Navbar>
