@@ -473,7 +473,7 @@ function Library(){
      {
         "id": "16",
         "name": "Mexican Ensalada",
-        "instructions": "In small bowl, whisk together dressing ingredients.Chop up additional ingredients bite size and add to a medium bowl.Combine dressing and all ingredients in a large bowl, toss, and serve.Includes recipe for [basil-lime vinaigrette](http:\/\/www.xanthir.com\/recipes\/showrecipe.php?id=id6).Alternate dressing (for 2 servings):1\/2 lemon, juiced; 1 tbsp apple cider vinegar; 2 tbsp olive oil; 2 tablespoons cilantro, chopped",
+        "instructions": "In small bowl, whisk together dressing ingredients.Chop up additional ingredients bite size and add to a medium bowl.Combine dressing and all ingredients in a large bowl, toss, and serve.Includes recipe for [basil-lime vinaigrette](http:\/\/www.xanthir.com\/recipes\/showrecipe.php?id=id6)alternate dressing (for 2 servings):1\/2 lemon, juiced; 1 tbsp apple cider vinegar; 2 tbsp olive oil; 2 tablespoons cilantro, chopped",
         "ingredients": [
             "lime",
             "balsamic vinegar",
@@ -2760,7 +2760,7 @@ function Library(){
 	return(
 		<div className = "library">
 			{useEffect(() =>{console.log('library page loaded')})}
-			<div className = 'libraryTitle flexer'>ChefDoe</div> 
+			<div className = 'menuTitle flexer'>ChefDoe</div> 
 			<Libbar list = {recipes} />
 			<div className = 'recipePreviewsContainer flexer'> 
 				<DisplayRecipePreviews list = {recipes}/>
@@ -2788,7 +2788,7 @@ export function DisplayRecipePreviews(props){
 				</div>
 
 			<Link to="/view" style= {{textDecoration: 'none', color: 'inherit'}} state = {recipe}>
-					<div className = "libSubButton flexer quietLink"> Select Recipe </div>
+					<div className = "altButton flexer quietLink"> Select Recipe </div>
 				</Link>
 			</div>
 		))

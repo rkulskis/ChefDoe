@@ -16,7 +16,7 @@ function View(){
     	<ValContext.Provider value = {portion}>
 		<div className="view">
 			{useEffect(() =>{console.log('view page loaded')})}
-			<div className = 'libraryTitle flexer'>RECIPE VIEW</div>
+			<div className = 'menuTitle flexer'>RECIPE VIEW</div>
 			<Viewbar data = {recipe} val = {portion} />
 			<div className = 'recipeContainer flexer'> 
 				<DisplayRecipeInfo data ={[recipe, portion]}/> 

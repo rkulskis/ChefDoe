@@ -19,6 +19,72 @@ html, body{
   text-decoration: none;
 }
 
+.menuTitle{
+  width: 100%;
+  height: 50px;
+  top: 80px;
+  z-index: 2;
+  color: white;
+  font-family: uBoldItalic;
+  font-size: xx-large;
+  cursor: default;
+}
+
+.menuBarBox{
+  z-index: 1;
+  height: 150px;
+  width: 100%;
+  background-color: #121212;
+  top: 0px;
+}
+
+.menuBarList{
+  z-index: 1;
+  height: inherit;
+  width: 100%;
+  position: relative;
+  flex-direction: row;
+}
+
+.mainButton{
+  z-index: 1;
+  bottom: 30px;
+  width: 250px;
+  height: 60px;
+  justify-content: center;
+  background-color: #1d7c91;
+  cursor: pointer;
+  font-family: uBold;
+  font-size: x-large;
+  transition: font-size 0.1s linear;
+  position: relative;
+}
+
+.mainButton:hover{
+  font-size: xx-large;
+  transition: font-size 0.1s linear;
+}
+
+.altButton{
+  height: 30px;
+  background-color: grey;
+  cursor: pointer;
+  justify-content: center;
+  font-family: uItalic;
+  font-size: large;
+  position: relative;
+  border-radius: 2px;
+  box-shadow: 0 0 0 3px grey;
+  transition: box-shadow 0.05s linear;
+  margin-bottom: 10px;
+}
+
+.altButton:hover{
+  color: white;
+  /*box-shadow: 0 0 0 8px grey;*/
+  transition: box-shadow 0.05s linear;
+}
+
 /*----------------------  fonts  ----------------------*/
 @font-face{
   font-family: "uBold";
@@ -121,76 +187,7 @@ html, body{
   transition: font-size 0.15s linear;
 }
 
-/*----------------------  library page styles  ----------------------*/
-.libraryTitle{
-  width: 100%;
-  height: 50px;
-  top: 80px;
-  z-index: 2;
-  /*background-color: grey;*/
-  color: white;
-  position: fixed;
-  font-family: uBoldItalic;
-  font-size: xx-large;
-  cursor: default;
-}
-
-.libBarBox{
-  z-index: 1;
-  height: 150px;
-  width: 100%;
-  background-color: #121212;
-  top: 0px;
-}
-
-.libBarList{
-  z-index: 1;
-  height: inherit;
-  width: 100%;
-  position: relative;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.libMainButton{
-  z-index: 1;
-  bottom: 30px;
-  width: 250px;
-  height: 60px;
-  justify-content: center;
-  background-color: #1d7c91;
-  cursor: pointer;
-  font-family: uBold;
-  font-size: x-large;
-  transition: font-size 0.1s linear;
-  position: relative;
-}
-
-.libMainButton:hover{
-  font-size: xx-large;
-  transition: font-size 0.1s linear;
-}
-
-.libSubButton{
-  height: 30px;
-  background-color: grey;
-  cursor: pointer;
-  justify-content: center;
-  font-family: uItalic;
-  font-size: large;
-  position: relative;
-  border-radius: 2px;
-  box-shadow: 0 0 0 3px grey;
-  transition: box-shadow 0.05s linear;
-  margin-bottom: 10px;
-}
-
-.libSubButton:hover{
-  color: white;
-  /*box-shadow: 0 0 0 8px grey;*/
-  transition: box-shadow 0.05s linear;
-}
-
+/*----------------------  libary page styles  ----------------------*/
 .recipePreviewsContainer{
   z-index: 0;
   width: 100%;
@@ -257,13 +254,11 @@ html, body{
   background-color: #89a9ab;
   margin: 2px 1px 1px 1px ;
   justify-content: center;
-  overflow: auto;
 }
 
 .recipeTitle{
   font-family: uBold;
   font-size: x-large;
-  cursor: default;
   display: flex;
   justify-content: center;
 }
@@ -289,8 +284,6 @@ html, body{
 .recipeSteps{
   /*background-color: red;*/
   position: relative;
-  /*border-bottom: 2.5px solid #121212;*/
-  /*border-top: 2.5px solid #121212;*/
   height: 250px;
   transform: translateY(-20px);
   overflow: auto;
@@ -298,7 +291,6 @@ html, body{
 
 .recipeIngredients{
   /*background-color: green;*/
-  /*border: 2.5px solid #121212;*/
   display: flex;
   height: inherit;
   width: 320px;
@@ -309,7 +301,6 @@ html, body{
 
 .recipeMeasurements{
   /*background-color: blue;*/
-  /*border: 2.5px solid #121212;*/
   display: flex;
   height: inherit;
   width: 320px;
@@ -319,10 +310,8 @@ html, body{
 }
 
 .labelContainer{
-  width: inherit;
   transform: translateY(300px);
   flex-direction: row;
-  justify-content: space-around;
   background-color: white;
   width: 100%;
   position: relative;
@@ -332,17 +321,13 @@ html, body{
   /*background-color: black;*/
   height: 300px;
   flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
   position: relative;
   top: 30px;
-  word-wrap: break-word;
 }
 
 .portionSelectorContainer{
   font-family: uBold;
   font-size: large;
-  cursor: default;
   flex-direction: row;
   justify-content: flex-end;
   position: relative;
@@ -351,7 +336,7 @@ html, body{
 
 
 /*----------------------  confirmation page styles  ----------------------*/
-.orderPopupContainer{
+.confirmMessageContainer{
   top: 200px;
   height: 150px;
   width: 100%;
@@ -359,7 +344,7 @@ html, body{
   position: absolute;
 }
 
-.orderPopup{
+.confirmMessage{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -372,19 +357,13 @@ html, body{
   cursor: default;
 }
 
-.orderSummary{
+.confirmSubtext{
   font-family: uRegular;
   font-size: large;
   cursor: default;
 }
 
-.orderSubtext{
-  font-family: uRegular;
-  font-size: large;
-  cursor: default;
-}
-
-.orderThank{
+.confirmThank{
   font-family: uBoldItalic;
   font-size: medium;
   cursor: default;

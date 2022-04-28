@@ -128,14 +128,14 @@ export function Homebar(){
 
 export function Libbar(props){
   return(
-    <Navbar boxClass = "libBarBox flexer" listClass = "libBarList flexer">
+    <Navbar boxClass = "menuBarBox flexer" listClass = "menuBarList flexer">
       {/* create new recipe button */}
       <Link to="/create" style= {{textDecoration: 'none', color: 'inherit'}}>
-        <NavItem icon = "Add a Recipe" itemClass = "libMainButton flexer quietLink" />
+        <NavItem icon = "Add a Recipe" itemClass = "mainButton flexer quietLink" />
       </Link>
       {/* select random recipe button */}
       <Link to="/view" style= {{textDecoration: 'none', color: 'inherit'}} state ={pullRandom(props.list)} >
-        <NavItem icon = "Random Recipe" itemClass = "libMainButton flexer quietLink" />
+        <NavItem icon = "Random Recipe" itemClass = "mainButton flexer quietLink" />
       </Link>
     </Navbar>
   );
@@ -144,15 +144,15 @@ export function Libbar(props){
 export function Createbar(){
   // create and save
   return(
-    <Navbar boxClass = "libBarBox flexer" listClass = "libBarList flexer">
+    <Navbar boxClass = "menuBarBox flexer" listClass = "menuBarList flexer">
       {/* cancel button */}
       <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}}>
-        <NavItem icon = "Cancel" itemClass = "libMainButton flexer quietLink" />
+        <NavItem icon = "Cancel" itemClass = "mainButton flexer quietLink" />
       </Link>
 
       {/* save and continue to view button*/}
       <Link to="/view" style= {{textDecoration: 'none', color: 'inherit'}} state={'PLACE_NEW_DATA_HERE'} >
-        <NavItem icon = "Save and View" itemClass = "libMainButton flexer quietLink" />
+        <NavItem icon = "Save and View" itemClass = "mainButton flexer quietLink" />
       </Link>
     </Navbar>
   );
@@ -161,15 +161,15 @@ export function Createbar(){
 export function Viewbar(props){
     // see information and select portion 
     return(
-      <Navbar boxClass = "libBarBox flexer" listClass = "libBarList flexer">
+      <Navbar boxClass = "menuBarBox flexer" listClass = "menuBarList flexer">
       {/* back button */}
         <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}} >
-          <NavItem icon = "Back to Library" itemClass = "libMainButton flexer quietLink" />
+          <NavItem icon = "Back to Library" itemClass = "mainButton flexer quietLink" />
         </Link>
 
         {/* continue to order page button*/}
         <Link to="/order" style= {{textDecoration: 'none', color: 'inherit'}} state={[props.data, props.val]} >
-          <NavItem icon = "Continue" itemClass = "libMainButton flexer quietLink" />
+          <NavItem icon = "Continue" itemClass = "mainButton flexer quietLink" />
         </Link>
       </Navbar>
     ); 
@@ -178,15 +178,15 @@ export function Viewbar(props){
 export function Orderbar(props){
     // choose ingredients needed, place order 
     return(
-      <Navbar boxClass = "libBarBox flexer" listClass = "libBarList flexer">
+      <Navbar boxClass = "menuBarBox flexer" listClass = "menuBarList flexer">
       {/* back button, needs [0] to prevent data size overflow*/}
         <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}} state = {props.data[0]}>
-          <NavItem icon = "Back to Recipe" itemClass = "libMainButton flexer quietLink" />
+          <NavItem icon = "Back to Recipe" itemClass = "mainButton flexer quietLink" />
         </Link>
 
         {/* place order button*/}
         <Link to="/confirmation" style= {{textDecoration: 'none', color: 'inherit'}} state={props.data} >
-          <NavItem icon = "Place Order" itemClass = "libMainButton flexer quietLink" />
+          <NavItem icon = "Place Order" itemClass = "mainButton flexer quietLink" />
         </Link>
       </Navbar>
     ); 
@@ -195,10 +195,10 @@ export function Orderbar(props){
 export function Confirmbar(){
     // display ingredients ordered
     return(
-      <Navbar boxClass = "libBarBox flexer" listClass = "libBarList flexer">
+      <Navbar boxClass = "menuBarBox flexer" listClass = "menuBarList flexer">
       {/* back button */}
         <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}}>
-          <NavItem icon = "Back to Library" itemClass = "libMainButton flexer quietLink" />
+          <NavItem icon = "Back to Library" itemClass = "mainButton flexer quietLink" />
         </Link>
       </Navbar>
     ); 

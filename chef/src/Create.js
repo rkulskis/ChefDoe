@@ -21,7 +21,7 @@ function Create(){
 	return(
 		<div className="create">
 			{useEffect(() =>{console.log('prepare page loaded')})}
-			<div className = 'libraryTitle flexer'>NEW RECIPE</div>
+			<div className = 'menuTitle flexer'>NEW RECIPE</div>
 			<h2>make and save recipe here!</h2>
 			<Createbar />
 
