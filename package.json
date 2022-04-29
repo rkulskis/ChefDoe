@@ -4,7 +4,8 @@
   "description": "CS411 project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,7 @@
   },
   "homepage": "https://github.com/rkulskis/ChefDoe#readme",
   "dependencies": {
-    "express": "^4.17.3",
+    "express": "^4.18.0",
     "puppeteer-core": "^13.6.0"
   },
   "devDependencies": {

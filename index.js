@@ -5,10 +5,8 @@ const { buffer } = require('stream/consumers');
 const amazon_url = 'https://www.amazon.com';
 
 async function initBrowser(){
-  const browser = await puppeteer.launch({headless: false});
-  const page = await browser.newPage();
-  await page.goto(amazon_url);
-  return page;
+  const browser = await puppeteer.launch({headless: true});
+  return browser;
 }
 
 // user_id can be either a phone number or an email, password is their password to their amazon prime account
@@ -74,28 +72,55 @@ async function itemHandler(page,item) {
 async function checkOut(page) {
   await page.click('#nav-cart');
   await page.waitForSelector('input[data-feature-id="proceed-to-checkout-action"]');
+  await page.waitForTimeout(1000);
   await page.click('input[data-feature-id="proceed-to-checkout-action"]');
+  // pass before you checkout page
   await page.waitForSelector('span[class="a-button-inner"]');
   await page.click('span[class="a-button-inner"]');
-  await page.waitForSelector('span[class="a-button-inner"]');
-  await page.click('span[class="a-button-inner"]');
-  await page.waitForSelector('span[class="a-button-inner"]');
-  await page.click('span[class="a-button-inner"]');
-  // await page.waitForSelector('span[class="a-button-inner"]');
-  // await page.click('span[class="a-button-inner"]');
-  await page.waitForSelector('div[class="ufss-overview-selection-text-container"]');
-  const ETA = await page.evaluate(() => document.querySelector('div[class="ufss-overview-selection-text-container"]').textContent);
-  console.log('Page title = ' + ETA);
-  const test = await page.waitForSelector('h3[class="ufss-grid-row-title"]');
-  const test_text = await test.evaluate(el => el.textContent);
-  console.log(test_text);
+  // pass substitution preferences page
+  await page.waitForSelector('#subsContinueButton > span');
+  await page.click('#subsContinueButton > span');
+
+  // pass shipping & payment
+  await page.waitForSelector('#shipoption-select > div > div > div > div > div.ufss-overview-container > div.ufss-overview-right-container > div > span > span > span');
+  await page.waitForTimeout(1000);
+  await page.click('#shipoption-select > div > div > div > div > div.ufss-overview-container > div.ufss-overview-right-container > div > span > span > span');
+  // pass payment method
+  await page.waitForSelector('#order-summary-container > div > div > div > div:nth-child(1) > span > span');
+  await page.click('#order-summary-container > div > div > div > div:nth-child(1) > span > span');
+  // place order
+  await page.waitForSelector('#placeYourOrder > span');
+  await page.click('#placeYourOrder > span');
+
 }
 async function purchaseItems(items,user_id,user_password){
-  const page = await initBrowser();
+  // test for whether items is empty
+  if(items.length == 0) {
+    throw "items cannot be empty!";
+  }
+  const browser = await initBrowser();
+  const page = await browser.newPage();
+  await page.goto(amazon_url);
   await signInUser(page,user_id,user_password);
   await page.waitForNavigation();
   await navBarHandler(page);
-  await itemHandler(page,'yellow onion')
+  for(let i = 0; i < items.length; i++) {
+    await itemHandler(page, items[i]);
+  }
   await checkOut(page);
+  await browser.close();
 }
-purchaseItems([],'rkulskis@gmail.com','TurtleBurger1$');
+purchaseItems(['onion','bagel'],'rkulskis@gmail.com','TurtleBurger1$');
+
+// stuck on
+{/* <span class="a-button-inner">
+<input class="a-button-input" type="submit">
+<span class="a-button-text" aria-hidden="true">
+Continue
+</span></span> */}
+
+{/* <span class="a-button-inner">
+<input class="a-button-input" type="submit" aria-labelledby="subsContinueButton-announce">
+<span id="subsContinueButton-announce" class="a-button-text a-text-center" aria-hidden="true">
+Continue
+</span></span> */}
