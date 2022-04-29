@@ -7,6 +7,7 @@ import View from './View';
 import Order from './Order';
 import Confirmation from './Confirmation';
 import Review from './Review';
+import Manager from './Manager';
 
 
 /*
@@ -22,8 +23,6 @@ function App(){
     <Router>
       <div className = 'app'>
           <Routes>
-          {/*I spent too much time on this to delete it*/}
-            <Route path = "/secret" element={<Home />}/>    
             <Route path = "/" element={<Library />}/>
             <Route path = "/library" element={<Library />} />
             <Route path = "/create" element={<Create />} />
@@ -31,6 +30,9 @@ function App(){
             <Route path = "/order" element={<Order/>} />
             <Route path = "/review" element={<Review/>} />
             <Route path = "/confirmation" element={<Confirmation/>} />
+            <Route path = "/test" element={<Manager />}/>    
+            {/*I spent too much time on this to delete it*/}
+            <Route path = "/secret" element={<Home />}/>    
           </Routes>
       </div>
     </Router>

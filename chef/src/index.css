@@ -232,6 +232,76 @@ html, body{
   overflow: auto;
 }
 
+/*----------------------  create page styles  ----------------------*/
+.createContainer{
+  position: relative;
+  align-items: center;
+  width: 100%;
+  top: 200px;
+}
+
+.createList{
+  width: 100%;
+  height: 500px;
+  background-color: #121212;
+  flex-wrap: wrap;
+  justify-content: space-around ;
+  /*align-items: flex-start;*/
+  position: relative;
+  font-family: uBold;
+  font-size: x-large;
+  cursor: default;
+  overflow: auto;
+}
+
+.createBox{
+  background-color: #89a9ab;
+  height: 200px;
+  width: 400px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.createSubmitButton{
+  height: 80px;
+  width: 200px;
+  cursor: pointer;
+  justify-content: center;
+  font-family: uBold;
+  font-size: x-large;
+  border-radius: 4px;
+  position: relative;
+
+}
+
+#nameInput{
+  /*margin-left: 50px;*/
+  height: 100px;
+}
+
+#nameInputBar{
+  width: 300px;
+}
+
+#instrInput{
+  /*padding: 10px;*/
+}
+
+#ingrInput{
+  padding: 5px;
+}
+
+#measInput{
+  /*top: 100px;*/
+  padding: 5px;
+}
+
+textarea{
+  resize: none;
+}
+
+
+
 /*----------------------  view page styles  ----------------------*/
 .recipeContainer{
   font-family: uRegular;
@@ -252,6 +322,7 @@ html, body{
   background-color: #89a9ab;
   margin: 2px 1px 1px 1px ;
   justify-content: center;
+  overflow: auto;
 }
 
 .recipeTitle{
@@ -398,7 +469,7 @@ html, body{
   width: 100%;
   height: 400px;
   position: relative;
-  top: 350px;
+  top: 275px;
 }
 
 .cartBox{
@@ -420,10 +491,10 @@ html, body{
   font-size: x-large;
   cursor: default;
   position: relative;
-  transform: translateY(-110px);
+  transform: translateY(275px);
 }
 
-.infoInputContainer{
+.userInfoInputContainer{
   width: 100%;
   height: 100px;
   flex-direction: row;
@@ -432,7 +503,7 @@ html, body{
   position: relative;
 }
 
-.infoInputBox{
+.userInfoInputBox{
   background-color: grey;
   position: relative;
   font-family: uBold;

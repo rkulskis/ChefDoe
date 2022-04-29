@@ -1,7 +1,6 @@
-import {BrowserRouter as Router, Route, Routes, Link, useLocation} from 'react-router-dom';
-import React, {createContext, useContext, useState, useEffect} from 'react';
+import {useLocation} from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
 import {Reviewbar} from './Navbar';
-import {HandleTextInput} from './Create';
 
 
 function Review(){
@@ -14,7 +13,7 @@ function Review(){
 	const [orderInfo, setOrderInfo] = useState([cart, "", ""]);
 	// in view we needed context as well since input was happening in a function call, but not here
 
-	{useEffect(() =>{console.log(orderInfo)}, [orderInfo])}
+	useEffect(() =>{console.log(orderInfo)}, [orderInfo])
 
 	return(
 		<div className="review">
@@ -22,25 +21,31 @@ function Review(){
 			<div className = 'menuTitle flexer'>REVIEW ORDER</div>
 			<Reviewbar recipe = {recipe} portion = {portion} orderInfo = {orderInfo}/>
 
+			<div className = 'cartLabel flexer'>Is this everything you need?</div>
 			<div className = 'cartContainer flexer'>
 				<div className = 'cartBox flexer'>
 					<DisplayCart items = {cart} />
 				</div>
 			</div>
 
-			<div className = 'cartLabel flexer'>Is this everything you need?</div>
-
-			<div className = 'infoInputContainer flexer'>
-				<div className = 'infoInputBox flexer'>
-					<div style = {{marginBottom: '0px'}}>Enter your username:</div>
-					<HandleTextInput target = "name" data = {orderInfo} func = {setOrderInfo}/>
+			<form className = 'userInfoInputContainer flexer' >
+				<div className = 'userInfoInputBox flexer'>
+					<label>Enter your username:</label>
+					<input
+						type = "text"
+						required
+						onChange ={(e) => setOrderInfo([orderInfo[0], e.target.value, orderInfo[2]])}
+					/>
 				</div>
-
-				<div className = 'infoInputBox flexer'>
-					<div style = {{marginBottom: '0px'}}>Enter your password:</div>
-					<HandleTextInput target = "pass" data = {orderInfo} func = {setOrderInfo}/>
+				<div className = 'userInfoInputBox flexer'>
+					<label>Enter your password:</label>
+					<input
+						type = "text"
+						required
+						onChange ={(e) => setOrderInfo([orderInfo[0], orderInfo[1], e.target.value])}
+					/>
 				</div>
-			</div>
+			</form>
 		</div>
 	);
 }

@@ -1,9 +1,6 @@
 import {useLocation} from 'react-router-dom';
-import React, {createContext, useContext, useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Viewbar} from './Navbar';
-import {HandleNumInput} from './Create';
-const FuncContext = createContext();
-const ValContext = createContext();
 
 
 function View(){
@@ -13,18 +10,14 @@ function View(){
 	const [portion, setPortion] = useState(1);
 
 	return(
-		<FuncContext.Provider value = {setPortion}>
-    	<ValContext.Provider value = {portion}>
 		<div className="view">
 			{useEffect(() =>{console.log('view page loaded')})}
 			<div className = 'menuTitle flexer'>RECIPE VIEW</div>
 			<Viewbar recipe = {recipe} portion = {portion} />
 			<div className = 'recipeContainer flexer'> 
-				<DisplayRecipeInfo data ={recipe}/> 
+				<DisplayRecipeInfo data ={recipe} func = {setPortion}/> 
 			</div>
 		</div>
-		</ValContext.Provider>
-    	</FuncContext.Provider>
 	);
 }
 
@@ -68,7 +61,7 @@ function DisplayRecipeInfo(props){
 		{/*allow the user to select the number of portions*/}
 			<div className = "portionSelectorContainer flexer">
 				<div style = {{marginRight: '5px'}}>How many portions ?</div>
-				<HandleNumInput func = {useContext(FuncContext)}/>
+				<input type= 'number' onChange={(e) => props.func(e.target.value * 1)}/>
 			</div>
 		</div>
 	);

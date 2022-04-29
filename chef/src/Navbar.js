@@ -157,17 +157,12 @@ export function Libbar(props){
 }
 
 export function Createbar(){
-  // create and save
+  // create and upload to database
   return(
     <Navbar boxClass = "menuBarBox flexer" listClass = "menuBarList flexer">
       {/* cancel button */}
       <Link to="/library" style= {{textDecoration: 'none', color: 'inherit'}}>
         <NavItem icon = "Cancel" itemClass = "mainButton flexer quietLink" />
-      </Link>
-
-      {/* save and continue to view button*/}
-      <Link to="/view" style= {{textDecoration: 'none', color: 'inherit'}} state={'PLACE_NEW_DATA_HERE'} >
-        <NavItem icon = "Save and View" itemClass = "mainButton flexer quietLink" />
       </Link>
     </Navbar>
   );

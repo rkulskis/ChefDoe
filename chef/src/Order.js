@@ -1,5 +1,5 @@
-import {BrowserRouter as Router, Route, Routes, Link, useLocation} from 'react-router-dom';
-import React, {createContext, useContext, useState, useEffect} from 'react';
+import {useLocation} from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
 import {Orderbar} from './Navbar';
 
 function Order(){

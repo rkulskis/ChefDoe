@@ -1,13 +1,15 @@
-import {BrowserRouter as Router, Route, Routes, Link, useLocation} from 'react-router-dom';
-import React, {createContext, useContext, useState, useEffect} from 'react';
+import {useLocation} from 'react-router-dom';
+import React, {useEffect} from 'react';
 import {Confirmbar} from './Navbar';
 
 function Confirmation(){
 	const location = useLocation();
 	console.log(location.state);
 	const recipe = location.state[0];
-	const portion = location.state[1];
+	// const portion = location.state[1];
 	const orderInfo = location.state[2];
+
+	// call bot here 
 
 	return(
 		<div className="confirmation">

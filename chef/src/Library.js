@@ -1,16 +1,18 @@
-import {BrowserRouter as Router, Route, Routes, Link, useLocation} from 'react-router-dom';
-import React, {createContext, useContext, useState, useEffect} from 'react';
+import {Link, useLocation} from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
 import {Libbar} from './Navbar';
 
 
 
 function Library(){
-	// find way to get data from database instead of here
 	const location = useLocation();
 	console.log(location.state);
 
+    // delete this and repplace with call or something idk 
+
 	const [recipes, setRecipes] = useState([
-		{
+
+        {
 			"id": "0",
         name: "Baked Shrimp Scampi",
         instructions: "Preheat the oven to 425 degrees F.Defrost shrimp by putting in cold water, then drain and toss with wine, oil, salt, and pepper. Place in oven-safe dish and allow to sit at room temperature while you make the butter and garlic mixture.In a small bowl, mash the softened butter with the rest of the ingredients and some salt and pepper.Spread the butter mixture evenly over the shrimp. Bake for 10 to 12 minutes until hot and bubbly. If you like the top browned, place under a broiler for 1-3 minutes (keep an eye on it). Serve with lemon wedges and French bread.Note: if using fresh shrimp, arrange for presentation. Starting from the outer edge of a 14-inch oval gratin dish, arrange the shrimp in a single layer cut side down with the tails curling up and towards the center of the dish. Pour the remaining marinade over the shrimp. ",
@@ -51,14 +53,14 @@ function Library(){
         "instructions": "Wash strawberries and cut the tops off. Let strawberries drain.  Mix together heavy whipping cream, powdered sugar, and the brandy. Beat with a mixer till this becomes thick.  Place strawberries into glasses and spoon over the sauce.",
         "ingredients": [
             "powdered sugar",
-            " heavy whipping cream",
+            "heavy whipping cream",
             "strawberries",
             "brandy"
         ],
 		"measurements": [
             "2 tbsp powdered sugar",
             "0.5 pt heavy whipping cream",
-            "1 lb strawberries, (2 pints)",
+            "1 lb strawberries",
             "4 tbsp brandy"
         ], ratio:1
     },
@@ -2778,7 +2780,7 @@ export function pullRandom(props){
 	return randomRecipe;
 }
 
-export function DisplayRecipePreviews(props){
+function DisplayRecipePreviews(props){
 	return (
 		/*for each recipe, display its name and provide a link to the view page with its data*/
 		props.list.map((recipe) =>( 
