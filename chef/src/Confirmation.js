@@ -9,8 +9,12 @@ function Confirmation(){
 	// const portion = location.state[1];
 	const orderInfo = location.state[2];
 
-	// call bot here 
+	var items = orderInfo[0].map((item) => item.name).toString();
+	var user_id = orderInfo[1];
+	var user_password = orderInfo[2];
 
+	// call bot here 
+	fetch(`http://localhost:8080/purchaseitems/${items}/${user_id}/${user_password}`);
 	return(
 		<div className="confirmation">
 			{useEffect(() =>{console.log('order confirmation page loaded')})}
