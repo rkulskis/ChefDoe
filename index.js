@@ -110,7 +110,6 @@ async function purchaseItems(items,user_id,user_password){
   await checkOut(page);
   await browser.close();
 }
-purchaseItems(['onion','bagel'],'rkulskis@gmail.com','TurtleBurger1$');
 
 // stuck on
 {/* <span class="a-button-inner">
