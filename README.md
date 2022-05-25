@@ -1,3 +1,5 @@
+ChefDoe is a webapp for managing recipes. The main feature of the app is that it allows the user to select a recipe and automatically order the ingredients they are missing through amazon fresh, delivered straight to their house.
+
 To get necessary node_modules run:
   "npm i puppeteer"
   "npm i react-scripts"
